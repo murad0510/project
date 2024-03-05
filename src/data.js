@@ -1,0 +1,39 @@
+
+export const cards=[
+   {
+    id:1,
+    currence:"AZN",
+    name:"ABB",
+    incomes:[
+        {
+            name:"Job",
+            money:3000
+        }
+    ],
+    exps:[
+        {
+            name:"Phone",
+            money:300
+        }
+    ],
+},
+{
+    id:2,
+    currence:"EUR",
+    name:"Capital",
+    incomes:[
+        {
+            id:1,
+            name:"Work",
+            money:3000
+        }
+    ],
+    exps:[
+        {
+            id:2,
+            name:"Phone",
+            money:300
+        }
+    ],
+   } 
+];
