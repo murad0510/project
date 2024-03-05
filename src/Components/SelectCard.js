@@ -11,6 +11,7 @@ export default function SelectCard() {
     const [wallets,setWallet]=useState(cards);
     const [selectedWallet,setSelectedWalled]=useState(null);
 
+
     const [currences,setCurrence]=useState([
         {
             id:1,
@@ -25,7 +26,9 @@ export default function SelectCard() {
             name:"EUR"
         }
     ]);
-    console.log(wallets);
+
+
+
     function SelectedWallet(cardId){
         // console.log(cardId);
         const wallet = wallets.filter((w) => w.id == cardId);
@@ -34,13 +37,24 @@ export default function SelectCard() {
     }
 
     function AddIncomes(incomes){
-        console.log(incomes);
-        setWallet([
-            ...wallets.filter((w) => w.id == selectedWallet.id),
-            {
-              incomes
-            },
-          ]);
+        const income = {
+            name: incomes.name.trim(),
+            money:incomes.money,
+          };
+          let new_incomes = [...selectedWallet.incomes, income];
+
+        setSelectedWalled({ ...selectedWallet, incomes: new_incomes });      
+    }
+
+    
+    function AddExps(exps){
+        const exp = {
+            name: exps.name.trim(),
+            money:exps.money,
+          };
+          let new_exps = [...selectedWallet.exps, exp];
+
+        setSelectedWalled({ ...selectedWallet, exps: new_exps });      
     }
 
     // var clickWallet="";
@@ -71,7 +85,7 @@ export default function SelectCard() {
         <div>
             {c}
             <AddCard addWallet={AddWallet} currences={currences} ></AddCard>
-            {selectedWallet!=null && <ClickWallet selectedWallet={selectedWallet} addIncomes={AddIncomes}></ClickWallet>}
+            {selectedWallet!=null && <ClickWallet selectedWallet={selectedWallet} addIncomes={AddIncomes} addExps={AddExps}></ClickWallet>}
     </div>
   )
 }
